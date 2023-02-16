@@ -1,0 +1,20 @@
+.spinner__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner {
+  height: 2.5rem;
+  width: 2.5rem;
+  fill: rgb(83, 81, 81);
+  animation: spinner 2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

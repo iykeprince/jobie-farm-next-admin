@@ -1,0 +1,54 @@
+.login__form {
+  width: 100%;
+  margin: 2rem auto;
+}
+
+.invalid__input {
+  width: 100%;
+  margin-top: -2rem;
+  color: #f87e8a;
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.btn__box {
+  width: 100%;
+  margin: 3rem 0 0;
+}
+
+.button {
+  border-radius: 1rem;
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 0.7rem 0;
+  background: linear-gradient(to bottom left, #ffc107, rgba(75, 68, 68, 0.7));
+  color: #ffffff;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  background: linear-gradient(to bottom left, rgba(75, 68, 68, 0.7), #ffc107);
+}
+
+.error__message {
+  text-align: center;
+  border: 0.1rem solid rgba(175, 168, 168, 0.7);
+  font-size: 1rem;
+  color: rgba(175, 168, 168, 0.7);
+  padding: 0.5rem 0;
+  border-radius: 10rem;
+}
+.forget:link,
+.forget:visited {
+  display: block;
+  width: 100%;
+  margin-top: -1.5rem;
+  text-align: right;
+  font-size: 1.2rem;
+  color: #ad703d;
+}
+
+.forget:hover,
+.forget:active {
+  color: #b1580f;
+}

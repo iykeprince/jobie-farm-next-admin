@@ -1,0 +1,44 @@
+
+@import url("/assets/css/animate.css");
+@import url("/assets/css/bootstrap.min.css");
+@import url("/assets/css/all.min.css");
+@import url("/assets/css/icofont.min.css");
+@import url("/assets/css/lightcase.css");
+@import url("/assets/css/swiper.min.css");
+@import url("/assets/css/style.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+   <link rel="stylesheet" href="../assets/css/animate.css" />
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../assets/css/all.min.css" />
+        <link rel="stylesheet" href="../assets/css/icofont.min.css" />
+        <link rel="stylesheet" href="../assets/css/lightcase.css" />
+        <link rel="stylesheet" href="../assets/css/swiper.min.css" />
+        <link rel="stylesheet" href="../assets/css/style.css" />
+*/
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {}
+
+  body {}
+}
