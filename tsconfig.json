@@ -19,12 +19,15 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/Products/Products.jsx",
-    "components/Products/Products.jsx",
-    "components/Products/ProductItem.jsx",
-    "components/Products/ProductItem.jsx",
+    "components/Admin/Products/Products.jsx",
+    "components/Admin/Products/Products.jsx",
+    "components/Admin/Products/ProductItem.jsx",
+    "components/Admin/Products/ProductItem.jsx",
     "pages/index.tsx",
-    "pages/index.tsx"
-, "hooks/useFirebaseAuth.jsx"  ],
+    "pages/index.tsx",
+    "hooks/useFirebaseAuth.jsx",
+    "components/Layouts/Layouts.jsx",
+    "components/Layouts/Layouts.jsx"
+  ],
   "exclude": ["node_modules"]
 }

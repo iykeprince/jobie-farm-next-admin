@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import "../components/Pagination/Pagination.scss";
+import "../Stylesheets/main.scss";
 
 import type { AppProps } from "next/app";
 import Script from "next/script";
@@ -7,6 +7,7 @@ import { AuthUserProvider } from "../contexts/auth.context";
 import { Provider } from "react-redux";
 import store, { persistor } from "../store/store";
 import { PersistGate } from "redux-persist/integration/react";
+import Layouts from "../components/Layouts/Layouts";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -54,7 +55,9 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <Component {...pageProps} />
+            <Layouts>
+              <Component {...pageProps} />
+            </Layouts>
           </PersistGate>
         </Provider>
       </div>

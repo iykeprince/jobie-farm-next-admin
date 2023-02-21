@@ -31,7 +31,6 @@ const Pagination = (props) => {
 
         <p className="pagination__icons--paragraph">{page}</p>
         <i
-          class=""
           onClick={nextHandler}
           className={` icofont-arrow-right pagination__icons--next ${
             page === total_pages || total_pages < 1 ? " not__allowed" : ""

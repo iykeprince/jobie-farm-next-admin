@@ -1,0 +1,64 @@
+.addproduct {
+  width: 35%;
+  margin: 2rem auto;
+  box-shadow: 0 1px 2px rgba(130, 130, 207, 0.576);
+  padding: 1rem;
+  border-radius: 0.6rem;
+}
+.h1 {
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: #fd7e14;
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+.p {
+  font-size: 1.1rem;
+  color: #636161;
+  margin-top: 2.5rem;
+  text-align: left;
+  width: 100%;
+}
+.a:link,
+.a:visited {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #fd7e14;
+}
+
+.a:hover,
+.a:active,
+.icon:hover {
+  color: #b1580f;
+}
+
+.icon {
+  cursor: pointer;
+  height: 1.3rem;
+  width: 1.3rem;
+}
+@media only screen and (max-width: 900px) {
+  .addproduct {
+    width: 65%;
+    margin: 2rem auto;
+    box-shadow: 0 1px 2px rgba(130, 130, 207, 0.576);
+    padding: 1rem;
+    border-radius: 0.6rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .addproduct {
+    width: 85%;
+    margin: 2rem auto;
+    box-shadow: 0 1px 2px rgba(130, 130, 207, 0.576);
+    padding: 1rem;
+    border-radius: 0.6rem;
+  }
+  .h1 {
+    margin-top: 1rem;
+    font-weight: 500;
+    font-size: 1.7rem;
+  }
+}

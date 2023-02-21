@@ -1,0 +1,22 @@
+.dashboard {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: $line;
+  }
+  &__title {
+    font-size: 2rem;
+    font-weight: 500;
+    font-style: italic;
+    color: $color-grey-dark-2;
+  }
+  &__images {
+    display: flex;
+
+    & img {
+      margin-right: 1rem;
+    }
+  }
+}
