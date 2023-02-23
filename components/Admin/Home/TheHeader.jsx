@@ -17,7 +17,7 @@ const TheHeader = () => {
           width={30}
           height={30}
         />
-        <p>jobiefarm@gmail.com</p>
+        <p className="dashboard__email">jobiefarm@gmail.com</p>
       </div>
     </header>
   );

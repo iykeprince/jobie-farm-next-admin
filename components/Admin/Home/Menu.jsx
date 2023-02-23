@@ -2,19 +2,22 @@ import { useSelector } from "react-redux";
 import MenuItem from "./MenuItem";
 
 const Menu = () => {
-  const { products, transactions } = useSelector((state) => state.products);
-  const DummyDatas = [
+  const { products, transactions, orders, users } = useSelector(
+    (state) => state.products
+  );
+  const fetchedDatas = [
     { title: "Available Products", total: products.length, link: "/products" },
     {
       title: "All transactions",
       total: transactions.length,
       link: "/transactions",
     },
-    { title: "All Orders", total: 0, link: "/orders" },
+    { title: "All Orders", total: orders.length, link: "/orders" },
+    { title: "All Users", total: users.length, link: "/customers" },
   ];
   return (
     <ul className="admin__list">
-      {DummyDatas.map((dat, index) => (
+      {fetchedDatas.map((dat, index) => (
         <MenuItem
           key={index}
           topic={dat.title}

@@ -4,7 +4,7 @@ const SideBar = () => {
   return (
     <nav className="sidebar">
       <ul className="side-nav">
-        <li className="side-nav__item side-nav__item--active">
+        <li className="side-nav__item">
           <Link href="/" className="side-nav__link">
             {/* Icon */}
             <span>Home</span>
@@ -26,6 +26,11 @@ const SideBar = () => {
         <li className="side-nav__item">
           <Link href="/transactions" className="side-nav__link">
             <span>Transactions</span>
+          </Link>
+        </li>
+        <li className="side-nav__item">
+          <Link href="/customers" className="side-nav__link">
+            <span>Customers</span>
           </Link>
         </li>
       </ul>

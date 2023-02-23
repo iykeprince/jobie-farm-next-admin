@@ -27,7 +27,9 @@
     "pages/index.tsx",
     "hooks/useFirebaseAuth.jsx",
     "components/Layouts/Layouts.jsx",
-    "components/Layouts/Layouts.jsx"
+    "components/Layouts/Layouts.jsx",
+    "pages/customers/index.jsx",
+    "pages/customers/index.jsx"
   ],
   "exclude": ["node_modules"]
 }

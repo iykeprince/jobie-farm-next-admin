@@ -1,4 +1,10 @@
-const Orders = () => {
-  return <div>Orders Page</div>;
+import Orders from "../../components/Admin/Orders/Orders";
+
+const AllOrders = () => {
+  return (
+    <div>
+      <Orders />
+    </div>
+  );
 };
-export default Orders;
+export default AllOrders;

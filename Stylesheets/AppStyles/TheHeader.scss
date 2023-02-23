@@ -11,6 +11,9 @@
     font-weight: 500;
     font-style: italic;
     color: $color-grey-dark-2;
+    @media only screen and (max-width: 650px) {
+      display: none;
+    }
   }
   &__images {
     display: flex;
