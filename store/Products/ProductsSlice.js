@@ -30,7 +30,9 @@ const ProductsSlice = createSlice({
     },
     searchUsers(state, action) {
       const reg = new RegExp(`${action.payload.word}`, "gi");
-      const matched = state.users.filter((usr) => reg.test(usr.lastName));
+      const matched = state.users.filter((usr) => {
+        return reg.test(usr.lastName);
+      });
       state.users = matched;
     },
     filterByDate(state, action) {

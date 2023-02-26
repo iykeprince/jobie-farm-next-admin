@@ -1,12 +1,8 @@
-// import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
-// import { db } from "../../../firebase";
-// import Image from "next/image";
-// import Button from "../../UI/Button";
+import { collection, updateDoc, doc, getDocs } from "firebase/firestore";
+import { db } from "../../../firebase";
 
-// import { useRouter } from "next/router";
-// import { ProductsActions } from "../../../store/Products/ProductsSlice";
-import { useState } from "react";
-// import { useDispatch } from "react-redux";
+import { ProductsActions } from "../../../store/Products/ProductsSlice";
+import { useDispatch } from "react-redux";
 import classes from "./Orders.module.css";
 
 const OrderItem = ({
@@ -22,39 +18,37 @@ const OrderItem = ({
   price,
   quantity,
 }) => {
-  //   const router = useRouter();
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //   const editHandler = () => {};
+  const editStatusHandler = async (status, type) => {
+    const ref = doc(db, "orders", id);
+    try {
+      await updateDoc(ref, {
+        title,
+        customerName,
+        customerEmail,
+        customerPhone,
+        category,
+        totalPrice,
+        paymentStatus: type === "payment" ? status : paymentStatus,
+        orderStatus: type === "order" ? status : orderStatus,
+        price,
+        quantity,
+      });
+      const colRef = collection(db, "orders");
+      const snapshots = await getDocs(colRef);
+      const docs = snapshots.docs.map((doc) => {
+        const data = doc.data();
+        data.id = doc.id;
+        return data;
+      });
+      dispatch(ProductsActions.addOrders({ orders: docs }));
+      console.log("Document successfully updated!", docs);
+    } catch (error) {
+      console.error("Error updating document: ", error);
+    }
+  };
 
-  //   const deleteHandler = async () => {
-  // // Deleting a product
-  // const docRef = doc(db, "products", id);
-  // deleteDoc(docRef)
-  //   .then(() => {
-  //     console.log("Document successfully deleted!");
-  //   })
-  //   .catch((error) => {
-  //     console.error("Error removing document: ", error);
-  //   });
-  // // Re-fetching updated products
-  // const colRef = collection(db, "products");
-  // const snapshots = await getDocs(colRef);
-  // const docs = snapshots.docs.map((doc) => {
-  //   const data = doc.data();
-  //   data.id = doc.id;
-  //   return data;
-  // });
-  // dispatch(ProductsActions.addProducts({ products: docs }));
-  //   };
-  const [updatedPaymentStatus, setPaymentStatus] = useState(paymentStatus);
-  const [updatedOrderStatus, setOrderStatus] = useState(orderStatus);
-  const PaymentStatusHandler = (e) => {
-    setPaymentStatus(e.target.value);
-  };
-  const orderStatusHandler = (e) => {
-    setOrderStatus(e.target.value);
-  };
   return (
     <>
       <tr className={classes.tr}>
@@ -66,11 +60,13 @@ const OrderItem = ({
         <td className={classes.td}>{title}</td>
         <td className={classes.td}>{quantity} </td>
         <td className={classes.td}>&#8358;{price}</td>
-        <td className={classes.td}>{totalPrice}</td>
+        <td className={classes.td}>&#8358;{totalPrice}</td>
         <td className={classes.td}>
           <select
-            value={updatedPaymentStatus}
-            onChange={PaymentStatusHandler}
+            value={paymentStatus}
+            onChange={(e) => {
+              editStatusHandler(e.target.value, "payment");
+            }}
             name="payment"
             id="payment"
             className={classes.select}
@@ -81,8 +77,10 @@ const OrderItem = ({
         </td>
         <td className={classes.td}>
           <select
-            value={updatedOrderStatus}
-            onChange={orderStatusHandler}
+            value={orderStatus}
+            onChange={(e) => {
+              editStatusHandler(e.target.value, "order");
+            }}
             name="order"
             id="order"
             className={classes.select}

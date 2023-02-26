@@ -26,8 +26,8 @@ const AllUsers = () => {
         <table className={`${classes.table}`}>
           <thead>
             <tr className={classes.tr}>
+              <th className={classes.th}>First Name</th>
               <th className={classes.th}>Last Name</th>
-              <th className={classes.th}> First Name</th>
               <th className={classes.th}>Email</th>
               <th className={classes.th}>Phone Number</th>
             </tr>
