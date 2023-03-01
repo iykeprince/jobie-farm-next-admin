@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <div id="modal-root"></div>
       <body>
         <Main />
         <NextScript />

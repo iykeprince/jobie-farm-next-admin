@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 
-import classes from "./Input.module.css";
+import classes from "./LoginInput.module.css";
 
 const Input = (props) => {
   const {

@@ -6,8 +6,8 @@ import Script from "next/script";
 import { AuthUserProvider } from "../contexts/auth.context";
 import { Provider } from "react-redux";
 // import store, { persistor } from "../store/store";
-import store from "../store/store";
 // import { PersistGate } from "redux-persist/integration/react";
+import store from "../store/store";
 import Layouts from "../components/Layouts/Layouts";
 
 export default function App({ Component, pageProps }: AppProps) {

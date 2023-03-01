@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { ValidatePassword, ValidateEmail } from "../signup/Validations";
-import { ImSpinner2 } from "react-icons/im";
+import { ValidatePassword, ValidateEmail } from "../../lib/Validations";
 
-import Input from "./Input";
-import Button from "../../components/Button";
+import Input from "./LoginInput";
+import Button from "../../components/UI/Button";
 
 import classes from "./LoginForm.module.css";
 import Link from "next/link";

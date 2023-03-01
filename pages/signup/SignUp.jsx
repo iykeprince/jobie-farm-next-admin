@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import { ValidatePassword, ValidateEmail } from "../signup/Validations";
+import { ValidatePassword, ValidateEmail } from "../../lib/Validations";
 
-import Input from "../Login/Input";
-import Button from "../../components/Button";
+import Input from "../login/LoginInput";
+import Button from "../../components/UI/Button";
 
-import classes from "./Form.module.css";
+import classes from "./SignUpForm.module.css";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 const Form = ({ setError, loading, onSubmit }) => {
   const [showPassword, setShowPassword] = useState(false);
