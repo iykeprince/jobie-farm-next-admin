@@ -50,6 +50,7 @@ const MobileOrderItem = (props) => {
       </p>
       <p>
         Payment Status:
+        <br />
         <span>
           <select
             value={updatedPaymentStatus}
@@ -65,6 +66,7 @@ const MobileOrderItem = (props) => {
       </p>
       <p>
         Order Status:
+        <br />
         <span>
           {" "}
           <select

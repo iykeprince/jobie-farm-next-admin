@@ -57,8 +57,6 @@ const Form = ({ onSubmit, loading }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(form);
-
     // Send form details to parent component
     onSubmit({
       price: form.price,

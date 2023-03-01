@@ -45,6 +45,11 @@
   .mobile {
     display: none;
   }
+  .no__transaction {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.5rem;
+  }
 }
 
 /* Mobile view */
@@ -95,6 +100,11 @@
     font-size: 1.1rem;
     font-weight: 500;
     color: #fd7e14;
+  }
+  .no__transaction {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.5rem;
   }
 }
 @media (max-width: 650px) {

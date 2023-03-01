@@ -2,9 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
+  filteredProducts: [],
+  noProduct: false,
   transactions: [],
+  filteredTransactions: [],
+  noTransaction: false,
   orders: [],
+  filteredOrders: [],
+  noOrder: false,
   users: [],
+  filteredUsers: [],
+  noUser: false,
 };
 
 const ProductsSlice = createSlice({
@@ -26,14 +34,27 @@ const ProductsSlice = createSlice({
     searchProducts(state, action) {
       const reg = new RegExp(`${action.payload.word}`, "gi");
       const matched = state.products.filter((pro) => reg.test(pro.title));
-      state.products = matched;
+      if (matched.length === 0) {
+        state.noProduct = true;
+      } else {
+        state.noProduct = false;
+      }
+      state.filteredProducts = matched;
     },
     searchUsers(state, action) {
       const reg = new RegExp(`${action.payload.word}`, "gi");
       const matched = state.users.filter((usr) => {
-        return reg.test(usr.lastName);
+        if (reg.test(usr.lastName)) {
+          console.log(usr.lastName);
+          return true;
+        } else return false;
       });
-      state.users = matched;
+      if (matched.length === 0) {
+        state.noUser = true;
+      } else {
+        state.noUser = false;
+      }
+      state.filteredUsers = matched;
     },
     filterByDate(state, action) {
       function isDateInRange(dateToCheck, startDate, endDate) {
@@ -42,10 +63,30 @@ const ProductsSlice = createSlice({
       const { startDate, endDate } = action.payload;
       const filtered = state.transactions.filter((item) => {
         const date = new Date(item.date);
-        return isDateInRange(date, startDate, endDate);
+        if (isDateInRange(date, startDate, endDate)) return true;
+        else return false;
       });
-      if (filtered.length === 0) state.transactions = [];
-      state.transactions = filtered;
+      if (filtered.length === 0) {
+        state.noTransaction = true;
+      } else {
+        state.noTransaction = false;
+      }
+      state.filteredTransactions = filtered;
+    },
+    filterOrders(state, action) {
+      const { type, order, payment } = action.payload;
+      if (type === "All" && order === "All" && payment === "All") {
+        state.filteredOrders = state.orders;
+        return;
+      }
+      const filtered = state.orders.filter((ord) => {
+        return (
+          (ord.type === type || type === "All") &&
+          (ord.orderStatus === order || order === "All") &&
+          (ord.paymentStatus === payment || payment === "All")
+        );
+      });
+      state.filteredOrders = filtered;
     },
   },
 });

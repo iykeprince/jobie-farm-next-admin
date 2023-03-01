@@ -145,7 +145,11 @@
     width: 80%;
   }
 }
-
+.no__user {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 1.5rem;
+}
 @media screen and (max-width: 500px) {
   .li {
     width: 90%;

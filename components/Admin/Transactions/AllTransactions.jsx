@@ -7,7 +7,12 @@ import TransactionItem from "./TransactionItem";
 import classes from "./Transactions.module.css";
 
 const AllTransactions = () => {
-  const { transactions } = useSelector((state) => state.products);
+  const { transactions, filteredTransactions, noTransaction } = useSelector(
+    (state) => state.products
+  );
+  const transactionsArr =
+    filteredTransactions.length > 0 ? filteredTransactions : transactions;
+
   const [start, setStart] = useState(0);
   const TRANSACTIONS_PER_PAGE = 2;
   const end = start + TRANSACTIONS_PER_PAGE;
@@ -21,34 +26,41 @@ const AllTransactions = () => {
         <Search />
       </div>
       <div className={`${classes.desktop}`}>
-        <table className={`${classes.table}`}>
-          <thead>
-            <tr className={classes.tr}>
-              <th className={classes.th}>Date</th>
-              <th className={classes.th}>Email</th>
-              <th className={classes.th}>Phone Number</th>
-              <th className={classes.th}>Amount</th>
-              <th className={classes.th}>Status</th>
-              <th className={classes.th}>Payment Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transactions?.slice(start, end).map((item) => (
-              <TransactionItem key={item.id} details={item} />
-            ))}
-          </tbody>
-        </table>
+        {!noTransaction ? (
+          <table className={`${classes.table}`}>
+            <thead>
+              <tr className={classes.tr}>
+                <th className={classes.th}>Date</th>
+                <th className={classes.th}>Email</th>
+                <th className={classes.th}>Phone Number</th>
+                <th className={classes.th}>Amount</th>
+                <th className={classes.th}>Status</th>
+                <th className={classes.th}>Payment Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              {transactionsArr?.slice(start, end).map((item) => (
+                <TransactionItem key={item.id} details={item} />
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p className={classes.no__transaction}>
+            No trasanction is within the range of the given date!
+          </p>
+        )}
       </div>
 
       {/* Mobile view */}
       <ul className={`${classes.mobile} ${classes.ul}`}>
-        {transactions?.slice(start, end).map((item) => (
-          <MobileTransactions key={item.id} details={item} />
-        ))}
+        {!noTransaction &&
+          transactionsArr
+            ?.slice(start, end)
+            .map((item) => <MobileTransactions key={item.id} details={item} />)}
       </ul>
-      {transactions.length > 0 && (
+      {!noTransaction && transactionsArr.length > 0 && (
         <Pagination
-          totalProducts={transactions.length}
+          totalProducts={transactionsArr.length}
           productsPerPage={TRANSACTIONS_PER_PAGE}
           onChange={getPageHandler}
         />

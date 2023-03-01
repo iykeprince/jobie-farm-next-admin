@@ -1,6 +1,6 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Pagination from "../../components/Pagination/Pagination";
 import Search from "../../components/Admin/Search/Search";
@@ -8,11 +8,16 @@ import Button from "../../components/UI/Button";
 
 import classes from "../../styles/Shop.module.css";
 import SelectedProducts from "../../components/Admin/Products/SelectedProducts/SelectedProducts";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase";
+import { ProductsActions } from "../../store/Products/ProductsSlice";
 const Shop = () => {
   const router = useRouter();
 
   // Pagination logic
-  const { products } = useSelector((state) => state.products);
+  const { products, noProduct, filteredProducts } = useSelector(
+    (state) => state.products
+  );
   const [start, setStart] = useState(0);
   const PRODUCTS_PER_PAGE = 10;
   const end = start + PRODUCTS_PER_PAGE;
@@ -23,6 +28,21 @@ const Shop = () => {
     event.preventDefault();
     router.push("/products/addproduct");
   };
+  const productsArr = filteredProducts.length > 0 ? filteredProducts : products;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    (async () => {
+      // Get all products from firestore
+      const productsRef = collection(db, "products");
+      const productsSnapshots = await getDocs(productsRef);
+      const proDocs = productsSnapshots.docs.map((doc) => {
+        const data = doc.data();
+        data.id = doc.id;
+        return data;
+      });
+      dispatch(ProductsActions.addProducts({ products: proDocs }));
+    })();
+  }, [dispatch]);
 
   return (
     <section className={classes.shop}>
@@ -38,9 +58,9 @@ const Shop = () => {
         </div>
       </div>
       <SelectedProducts start={start} end={end} />
-      {products.length > 0 && (
+      {!noProduct && productsArr.length > 0 && (
         <Pagination
-          totalProducts={products.length}
+          totalProducts={productsArr.length}
           productsPerPage={PRODUCTS_PER_PAGE}
           onChange={getPageHandler}
         />

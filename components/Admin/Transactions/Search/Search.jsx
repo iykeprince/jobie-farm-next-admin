@@ -11,10 +11,12 @@ const Search = () => {
   const dispatch = useDispatch();
   const searchHandler = (event) => {
     event.preventDefault();
+    const startDate = new Date(from);
+    const endDate = new Date(to);
     dispatch(
       ProductsActions.filterByDate({
-        startDate: from,
-        endDate: to,
+        startDate: startDate,
+        endDate: endDate,
       })
     );
   };

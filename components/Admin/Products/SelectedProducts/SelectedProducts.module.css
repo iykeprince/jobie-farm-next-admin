@@ -59,6 +59,11 @@
     justify-content: center;
     align-items: center;
   } */
+  .no__product {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.5rem;
+  }
 }
 
 /* Mobile view */
@@ -85,5 +90,10 @@
     align-items: center;
     justify-content: center;
     margin: 1rem 0;
+  }
+  .no__product {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.5rem;
   }
 }

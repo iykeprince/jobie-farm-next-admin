@@ -11,14 +11,6 @@
     margin: 3rem 0;
     min-width: 1145px;
   }
-  .h3 {
-    margin: 3rem 0 3rem;
-    font-weight: 600;
-    font-size: 2.2rem;
-    color: #fd7e14;
-    text-align: center;
-    letter-spacing: 0.1rem;
-  }
 
   .tr > th,
   .tr > td {
@@ -48,6 +40,27 @@
 
   .mobile {
     display: none;
+  }
+
+  .h3 {
+    margin: 2rem 0;
+    font-weight: 600;
+    font-size: 2.2rem;
+    color: #fd7e14;
+    text-align: center;
+    letter-spacing: 0.1rem;
+  }
+
+  .select {
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    border: 0.1rem solid #fd7d1467;
+    margin: 0.5rem 0 1.1rem 0;
+    font-size: 1.1rem;
+    font-weight: 300;
+    width: 80%;
+    background: #fff;
+    color: #000;
   }
 }
 
@@ -89,10 +102,7 @@
     padding: 1rem;
     border-radius: 1rem;
   }
-  .select {
-    width: fit-content;
-    color: #413b37;
-  }
+
   .li > p {
     font-size: 1.1rem;
     font-weight: 300;
@@ -103,6 +113,18 @@
     font-size: 1rem;
     font-weight: 400;
     color: #fd7e14;
+  }
+
+  .select {
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    border: 0.1rem solid #fd7d1467;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 300;
+    width: 70%;
+    background: #fff;
+    color: #000;
   }
 }
 
