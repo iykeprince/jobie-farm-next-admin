@@ -11,17 +11,19 @@
     margin: 3rem 0;
     width: 100%;
     border-bottom: 0.001rem solid rgba(168, 164, 164, 0.364);
+    border-collapse: collapse;
+    border-spacing: 0 0.2rem;
+  }
+  .tr {
+    border-bottom: 0.1rem solid rgba(128, 128, 128, 0.452);
   }
 
-  .tr > th,
-  .tr > td {
-    padding-bottom: 1rem 0;
-  }
   .th {
     text-align: center;
-    padding-bottom: 1rem 0;
+    padding-bottom: 0.8rem;
   }
   .td {
+    padding: 0.1rem 0;
     text-align: center;
   }
 

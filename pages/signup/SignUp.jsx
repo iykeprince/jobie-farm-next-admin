@@ -5,7 +5,7 @@ import { ValidatePassword, ValidateEmail } from "../../lib/Validations";
 import Input from "../login/LoginInput";
 import Button from "../../components/UI/Button";
 
-import classes from "./SignUpForm.module.css";
+import classes from "./SignUp cForm.module.css";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 const Form = ({ setError, loading, onSubmit }) => {
   const [showPassword, setShowPassword] = useState(false);

@@ -21,10 +21,13 @@ const AllTransactions = () => {
   };
   return (
     <section>
-      <h3 className={classes.h3}>All Transactions</h3>
-      <div>
-        <Search />
+      <div className={classes.top}>
+        <h3 className={classes.heading}>All Transactions</h3>
+        <div className={classes.search__box}>
+          <Search />
+        </div>
       </div>
+
       <div className={`${classes.desktop}`}>
         {!noTransaction ? (
           <table className={`${classes.table}`}>

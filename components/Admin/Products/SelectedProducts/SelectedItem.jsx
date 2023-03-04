@@ -7,6 +7,8 @@ import Button from "../../../UI/Button";
 import { useRouter } from "next/router";
 import { ProductsActions } from "../../../../store/Products/ProductsSlice";
 import { useDispatch } from "react-redux";
+
+import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 import classes from "./SelectedProducts.module.css";
 
 const SelectedItem = ({ id, title, image, price, quantity }) => {
@@ -50,6 +52,12 @@ const SelectedItem = ({ id, title, image, price, quantity }) => {
   return (
     <>
       <tr className={classes.tr}>
+        <td className={classes.image}>
+          <Image src={image} width={60} height={10} alt={title} />
+        </td>
+        <td className={classes.td}>{title}</td>
+        <td className={classes.td}>{quantity} </td>
+        <td className={classes.td}>&#8358;{price}</td>
         <td className={classes.td}>
           <div className={`${classes.btn__box}`}>
             <Button
@@ -58,7 +66,7 @@ const SelectedItem = ({ id, title, image, price, quantity }) => {
               className={classes.button}
               onClick={editHandler}
             >
-              Edit
+              <AiOutlineEdit />
             </Button>
             <Button
               id="btn__submit"
@@ -66,16 +74,10 @@ const SelectedItem = ({ id, title, image, price, quantity }) => {
               className={classes.button}
               onClick={deleteHandler}
             >
-              Delete
+              <AiOutlineDelete />
             </Button>
           </div>
         </td>
-        <td className={classes.image}>
-          <Image src={image} width={120} height={20} alt={title} />
-        </td>
-        <td className={classes.td}>{title}</td>
-        <td className={classes.td}>{quantity} </td>
-        <td className={classes.td}>&#8358;{price}</td>
       </tr>
     </>
   );

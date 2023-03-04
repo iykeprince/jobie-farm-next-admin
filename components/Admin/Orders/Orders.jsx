@@ -20,9 +20,11 @@ const Orders = () => {
   };
   return (
     <>
-      <h3 className={classes.h3}>All Orders</h3>
-      <div>
-        <OrdersSearch />
+      <div className={classes.top}>
+        <h3 className={classes.heading}>All Orders</h3>
+        <div className={classes.search__box}>
+          <OrdersSearch />
+        </div>
       </div>
       <div className={`${classes.desktop}`}>
         {!noOrder ? (

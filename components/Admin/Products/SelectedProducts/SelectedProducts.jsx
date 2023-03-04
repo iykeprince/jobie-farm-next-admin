@@ -15,11 +15,11 @@ const SelectedProducts = ({ start, end }) => {
           <table className={`${classes.table}`}>
             <thead>
               <tr className={classes.tr}>
-                <th className={classes.th}>Actions</th>
                 <th className={classes.th}>Image</th>
                 <th className={classes.th}>Product Name</th>
                 <th className={classes.th}>Quantity</th>
                 <th className={classes.th}>Unit Price</th>
+                <th className={classes.th}>Actions</th>
               </tr>
             </thead>
             <tbody>

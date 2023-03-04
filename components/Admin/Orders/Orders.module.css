@@ -6,21 +6,39 @@
   .mobile {
     display: none;
   }
+  .top {
+    width: 100%;
+    margin: 2.5rem 0 2rem;
+    padding: 0 2.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .heading {
+    /* flex-basis: 30%; */
+    font-size: 1.7rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    letter-spacing: 0.4rem;
+    background: linear-gradient(to right bottom, #ffc107, #fd7e14);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  .search__box {
+    flex-basis: 60%;
+  }
 
   .table {
     margin: 3rem 0;
     min-width: 1145px;
+    border-collapse: collapse;
+    border-spacing: 0 0.2rem;
+  }
+  .tr {
+    border-bottom: 0.1rem solid rgba(128, 128, 128, 0.452);
   }
 
-  .tr > th,
-  .tr > td {
-    padding-bottom: 2rem;
-  }
-
-  .tr > th,
-  .tr > td {
-    padding-bottom: 1rem;
-  }
   .th {
     text-align: center;
     padding-bottom: 1rem;
@@ -28,8 +46,21 @@
   }
   .td {
     text-align: center;
-    padding: 1rem 0;
-    border-bottom: 0.01rem solid rgba(168, 164, 164, 0.364);
+  }
+  .span {
+    display: flex;
+    align-items: center;
+  }
+  .icon {
+    margin-left: 0.3rem;
+    fill: #000;
+    height: 1.2rem;
+    width: 1.2rem;
+    transition: all 0.3s;
+  }
+
+  .icon:hover {
+    fill: #fd7e14;
   }
   .select {
     width: 60%;
