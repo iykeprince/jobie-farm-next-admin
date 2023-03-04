@@ -42,10 +42,10 @@
   .th {
     text-align: center;
     padding-bottom: 1rem;
-    border-bottom: 0.02rem solid rgba(168, 164, 164, 0.364);
   }
   .td {
     text-align: center;
+    padding: 0.7rem 0;
   }
   .span {
     display: flex;

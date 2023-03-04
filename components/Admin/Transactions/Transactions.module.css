@@ -38,21 +38,13 @@
   .tr {
     border-bottom: 0.1rem solid rgba(128, 128, 128, 0.452);
   }
-  .tr > th,
-  .tr > td {
-    padding-bottom: 2rem;
-  }
-
-  .tr > th,
-  .tr > td {
-    padding-bottom: 1rem;
-  }
   .th {
     text-align: center;
     padding-bottom: 1rem;
   }
   .td {
     text-align: center;
+    padding: 0.7rem 0;
   }
 
   .desktop {

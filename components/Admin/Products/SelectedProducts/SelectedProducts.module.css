@@ -20,11 +20,11 @@
 
   .th {
     text-align: center;
-    padding-bottom: 0.8rem;
+    padding-bottom: 1rem;
   }
   .td {
-    padding: 0.1rem 0;
     text-align: center;
+    padding: 0.7rem 0;
   }
 
   .image {
