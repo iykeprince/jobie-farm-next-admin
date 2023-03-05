@@ -28,10 +28,10 @@
   .search__box {
     flex-basis: 60%;
   }
-
   .table {
     margin: 3rem 0;
-    min-width: 1145px;
+    width: 100%;
+    border-bottom: 0.001rem solid rgba(168, 164, 164, 0.364);
     border-collapse: collapse;
     border-spacing: 0 0.2rem;
   }
@@ -92,6 +92,18 @@
     width: 80%;
     background: #fff;
     color: #000;
+  }
+  .action {
+    text-align: center;
+    transition: all 0.3s;
+    font-weight: bold;
+    cursor: pointer;
+    border: 0.07rem solid #fd7e14;
+    border-radius: 1rem;
+    padding: 0.2rem 0;
+  }
+  .action:hover {
+    color: #fd7e14;
   }
 }
 

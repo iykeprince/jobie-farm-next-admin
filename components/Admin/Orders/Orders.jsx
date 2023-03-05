@@ -18,6 +18,7 @@ const Orders = () => {
   const getPageHandler = (page) => {
     setStart((pag) => page * ORDERS_PER_PAGE - ORDERS_PER_PAGE);
   };
+
   return (
     <>
       <div className={classes.top}>
@@ -32,13 +33,11 @@ const Orders = () => {
             <thead>
               <tr className={classes.tr}>
                 <th className={classes.th}>Customer</th>
-                <th className={classes.th}>Category</th>
-                <th className={classes.th}>Product Name</th>
-                <th className={classes.th}>Quantity</th>
-                <th className={classes.th}>Unit Price</th>
-                <th className={classes.th}>Total Price</th>
+                <th className={classes.th}>Total Quantity</th>
+                <th className={classes.th}>Grand Total</th>
                 <th className={classes.th}>Payment Status</th>
                 <th className={classes.th}>Order Status</th>
+                <th className={classes.th}>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -46,11 +45,9 @@ const Orders = () => {
                 <OrderItem
                   key={order.id}
                   id={order.id}
-                  title={order.title}
-                  category={order.type}
-                  price={order.price}
-                  totalPrice={order.totalPrice}
-                  quantity={order.quantity}
+                  totalQuantity={order.totalQuantity}
+                  grandTotal={order.grandTotal}
+                  carts={order.carts}
                   paymentStatus={order.paymentStatus}
                   orderStatus={order.orderStatus}
                   customerName={order.customerName}
@@ -76,11 +73,9 @@ const Orders = () => {
                   <MobileOrderItem
                     key={order.id}
                     id={order.id}
-                    title={order.title}
-                    category={order.type}
-                    price={order.price}
-                    totalPrice={order.totalPrice}
-                    quantity={order.quantity}
+                    totalQuantity={order.totalQuantity}
+                    grandTotal={order.grandTotal}
+                    carts={order.carts}
                     paymentStatus={order.paymentStatus}
                     orderStatus={order.orderStatus}
                     customerName={order.customerName}

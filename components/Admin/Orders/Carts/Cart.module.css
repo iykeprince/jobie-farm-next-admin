@@ -1,0 +1,33 @@
+.ul {
+  width: 50rem;
+}
+.table {
+  margin: 3rem 0;
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: scroll;
+  text-align: center;
+}
+.tr {
+  border-bottom: 0.1rem solid rgba(128, 128, 128, 0.452);
+  margin-top: 1rem;
+}
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.th {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.td {
+  text-align: center;
+  padding: 0.7rem 0;
+}
+.total__amount {
+  font-size: 2rem;
+}
+.total {
+  font-size: 1.4rem;
+}

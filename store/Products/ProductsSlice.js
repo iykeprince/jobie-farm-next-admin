@@ -45,7 +45,6 @@ const ProductsSlice = createSlice({
       const reg = new RegExp(`${action.payload.word}`, "gi");
       const matched = state.users.filter((usr) => {
         if (reg.test(usr.lastName)) {
-          console.log(usr.lastName);
           return true;
         } else return false;
       });
@@ -74,14 +73,13 @@ const ProductsSlice = createSlice({
       state.filteredTransactions = filtered;
     },
     filterOrders(state, action) {
-      const { type, order, payment } = action.payload;
-      if (type === "All" && order === "All" && payment === "All") {
+      const { order, payment } = action.payload;
+      if (order === "All" && payment === "All") {
         state.filteredOrders = state.orders;
         return;
       }
       const filtered = state.orders.filter((ord) => {
         return (
-          (ord.type === type || type === "All") &&
           (ord.orderStatus === order || order === "All") &&
           (ord.paymentStatus === payment || payment === "All")
         );

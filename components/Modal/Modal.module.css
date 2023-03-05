@@ -6,12 +6,12 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(1.3px);
-  z-index: 10;
+  z-index: 100;
 }
 
 .overlay {
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgb(231, 220, 220);
@@ -23,6 +23,20 @@
   justify-content: space-between;
 }
 
+.close__icon {
+  top: 2rem;
+  right: 3rem;
+  position: absolute;
+  fill: #000;
+  height: 1.4rem;
+  width: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.close__icon:hover {
+  fill: #fd7e14;
+}
 @media only screen and (max-width: 650px) {
   .overlay {
     width: 95%;
