@@ -58,7 +58,7 @@ const Orders = () => {
             </tbody>
           </table>
         ) : (
-          <p className={classes.no_order}>
+          <p className={classes.no__order}>
             No order matched your filtered parameters
           </p>
         )}

@@ -1,5 +1,6 @@
 .ul {
   width: 50rem;
+  min-width: 45rem;
 }
 .table {
   margin: 3rem 0;
@@ -30,4 +31,9 @@
 }
 .total {
   font-size: 1.4rem;
+}
+@media only screen and (max-width: 1000px) {
+  .ul {
+    width: 40rem;
+  }
 }
