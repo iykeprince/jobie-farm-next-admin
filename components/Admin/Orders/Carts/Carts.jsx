@@ -34,7 +34,7 @@ const Carts = ({ carts, totalAmount }) => {
         </table>
         {carts?.length > 0 && (
           <p className={classes.total}>
-            Total: <b className={classes.total__amount}>${totalAmount}</b>
+            Total: <b className={classes.total__amount}>&#8358;{totalAmount}</b>
           </p>
         )}
       </ul>

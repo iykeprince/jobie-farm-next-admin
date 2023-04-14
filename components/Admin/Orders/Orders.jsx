@@ -32,7 +32,7 @@ const Orders = () => {
           <table className={`${classes.table}`}>
             <thead>
               <tr className={classes.tr}>
-                <th className={classes.th}>Customer</th>
+                <th className={classes.th}>Biller</th>
                 <th className={classes.th}>Total Quantity</th>
                 <th className={classes.th}>Grand Total</th>
                 <th className={classes.th}>Payment Status</th>
