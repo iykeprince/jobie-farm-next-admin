@@ -1,22 +1,22 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-import { ValidatePassword, ValidateEmail } from "../../lib/Validations";
+import { ValidatePassword, ValidateEmail } from '../../lib/Validations'
 
-import Input from "../login/LoginInput";
-import Button from "../../components/UI/Button";
+import Input from '../login/LoginInput'
+import Button from '../../components/UI/Button'
 
-import classes from "./SignUp cForm.module.css";
-import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import classes from './SignUpForm.module.css'
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 const Form = ({ setError, loading, onSubmit }) => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [passwordIcon] = useState(true);
+  const [showPassword, setShowPassword] = useState(false)
+  const [passwordIcon] = useState(true)
   const [form, setForm] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    phone: "",
-    confirmpassword: "",
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    phone: '',
+    confirmpassword: '',
     firstnameIsValid: false,
     phoneIsValid: false,
     lastnameIsValid: false,
@@ -29,215 +29,215 @@ const Form = ({ setError, loading, onSubmit }) => {
     emailIsFocus: false,
     confirmpasswordIsFocus: false,
     formIsValid: false,
-  });
+  })
 
   const firstnameOnChangeHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, firstname: e.target.value };
-    });
-    const { firstnameIsValid } = form;
-    const isValid = e.target.value.length > 3 || e.target.value.length < 10;
+      return { ...prev, firstname: e.target.value }
+    })
+    const { firstnameIsValid } = form
+    const isValid = e.target.value.length > 3 || e.target.value.length < 10
 
     if (firstnameIsValid && isValid) {
       setForm((prev) => {
-        return { ...prev, formIsValid: true };
-      });
+        return { ...prev, formIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, formIsValid: false };
-      });
+        return { ...prev, formIsValid: false }
+      })
     }
-  };
+  }
   const lastnameOnChangeHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, lastname: e.target.value };
-    });
-    const { lastnameIsValid } = form;
-    const isValid = e.target.value.length > 3 || e.target.value.length < 10;
+      return { ...prev, lastname: e.target.value }
+    })
+    const { lastnameIsValid } = form
+    const isValid = e.target.value.length > 3 || e.target.value.length < 10
 
     if (lastnameIsValid && isValid) {
       setForm((prev) => {
-        return { ...prev, formIsValid: true };
-      });
+        return { ...prev, formIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, formIsValid: false };
-      });
+        return { ...prev, formIsValid: false }
+      })
     }
-  };
+  }
   const phoneOnChangeHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, phone: e.target.value };
-    });
-    const { phoneIsValid } = form;
-    const isValid = e.target.value.startsWith("+");
+      return { ...prev, phone: e.target.value }
+    })
+    const { phoneIsValid } = form
+    const isValid = e.target.value.startsWith('+')
 
     if (phoneIsValid && isValid) {
       setForm((prev) => {
-        return { ...prev, formIsValid: true };
-      });
+        return { ...prev, formIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, formIsValid: false };
-      });
+        return { ...prev, formIsValid: false }
+      })
     }
-  };
+  }
 
   const emailOnChangeHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, email: e.target.value };
-    });
-    const { passwordIsValid } = form;
-    const isValid = ValidateEmail(e.target.value);
+      return { ...prev, email: e.target.value }
+    })
+    const { passwordIsValid } = form
+    const isValid = ValidateEmail(e.target.value)
 
     if (passwordIsValid && isValid) {
       setForm((prev) => {
-        return { ...prev, formIsValid: true };
-      });
+        return { ...prev, formIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, formIsValid: false };
-      });
+        return { ...prev, formIsValid: false }
+      })
     }
-  };
+  }
 
   const passwordOnChangeHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, password: e.target.value };
-    });
+      return { ...prev, password: e.target.value }
+    })
 
-    const { emailIsValid } = form;
-    const isValid = ValidatePassword(e.target.value);
+    const { emailIsValid } = form
+    const isValid = ValidatePassword(e.target.value)
 
     if (emailIsValid && isValid) {
       setForm((prev) => {
-        return { ...prev, formIsValid: true };
-      });
+        return { ...prev, formIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, formIsValid: false };
-      });
+        return { ...prev, formIsValid: false }
+      })
     }
-  };
+  }
   const confirmpasswordOnChangeHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, confirmpassword: e.target.value };
-    });
+      return { ...prev, confirmpassword: e.target.value }
+    })
 
-    const { emailIsValid } = form;
-    const isValid = e.target.value === form.password;
+    const { emailIsValid } = form
+    const isValid = e.target.value === form.password
 
     if (emailIsValid && isValid) {
       setForm((prev) => {
-        return { ...prev, formIsValid: true };
-      });
+        return { ...prev, formIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, formIsValid: false };
-      });
+        return { ...prev, formIsValid: false }
+      })
     }
-  };
+  }
 
   // Allowing the user to unfocus the input field before checking if the input field is correct.
   const firstnameOnBlurHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, firstnameIsFocus: true };
-    });
+      return { ...prev, firstnameIsFocus: true }
+    })
 
     if (form.firstname.length >= 3 && form.firstname.length <= 8) {
       setForm((prev) => {
-        return { ...prev, firstnameIsValid: true };
-      });
+        return { ...prev, firstnameIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, firstnameIsValid: false };
-      });
+        return { ...prev, firstnameIsValid: false }
+      })
     }
-  };
+  }
   const lastnameOnBlurHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, lastnameIsFocus: true };
-    });
+      return { ...prev, lastnameIsFocus: true }
+    })
 
     if (form.lastname.length >= 3 && form.lastname.length <= 8) {
       setForm((prev) => {
-        return { ...prev, lastnameIsValid: true };
-      });
+        return { ...prev, lastnameIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, lastnameIsValid: false };
-      });
+        return { ...prev, lastnameIsValid: false }
+      })
     }
-  };
+  }
   const phoneOnBlurHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, phoneIsFocus: true };
-    });
+      return { ...prev, phoneIsFocus: true }
+    })
 
-    if (form.phone.startsWith("+")) {
+    if (form.phone.startsWith('+')) {
       setForm((prev) => {
-        return { ...prev, phoneIsValid: true };
-      });
+        return { ...prev, phoneIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, phoneIsValid: false };
-      });
+        return { ...prev, phoneIsValid: false }
+      })
     }
-  };
+  }
 
   const emailOnBlurHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, emailIsFocus: true };
-    });
+      return { ...prev, emailIsFocus: true }
+    })
 
-    const isValid = ValidateEmail(form.email);
+    const isValid = ValidateEmail(form.email)
     if (isValid) {
       setForm((prev) => {
-        return { ...prev, emailIsValid: true };
-      });
+        return { ...prev, emailIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, emailIsValid: false };
-      });
+        return { ...prev, emailIsValid: false }
+      })
     }
-  };
+  }
 
   const passwordOnBlurHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, passwordIsFocus: true };
-    });
+      return { ...prev, passwordIsFocus: true }
+    })
 
-    const isValid = ValidatePassword(form.password);
+    const isValid = ValidatePassword(form.password)
     if (isValid) {
       setForm((prev) => {
-        return { ...prev, passwordIsValid: true };
-      });
+        return { ...prev, passwordIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, passwordIsValid: false };
-      });
+        return { ...prev, passwordIsValid: false }
+      })
     }
-  };
+  }
 
   const confirmpasswordOnBlurHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, passwordIsFocus: true };
-    });
+      return { ...prev, passwordIsFocus: true }
+    })
 
-    const isValid = form.password === form.confirmpassword;
+    const isValid = form.password === form.confirmpassword
     if (isValid) {
       setForm((prev) => {
-        return { ...prev, confirmpasswordIsValid: true };
-      });
+        return { ...prev, confirmpasswordIsValid: true }
+      })
     } else {
       setForm((prev) => {
-        return { ...prev, confirmpasswordIsValid: false };
-      });
+        return { ...prev, confirmpasswordIsValid: false }
+      })
     }
-  };
+  }
 
   const submitHandler = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     // Send form details to backend
     onSubmit({
       first_name: form.firstname,
@@ -245,15 +245,15 @@ const Form = ({ setError, loading, onSubmit }) => {
       email: form.email,
       password: form.password,
       repeat_password: form.confirmpassword,
-    });
+    })
 
     // Clearing the input fields
     setForm({
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
-      confirmpassword: "",
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: '',
+      confirmpassword: '',
       firstnameIsValid: false,
       emailIsValid: false,
       passwordIsValid: false,
@@ -263,8 +263,8 @@ const Form = ({ setError, loading, onSubmit }) => {
       passwordIsFocus: false,
       confirmpasswordIsFocus: false,
       formIsValid: false,
-    });
-  };
+    })
+  }
 
   return (
     <form
@@ -276,7 +276,7 @@ const Form = ({ setError, loading, onSubmit }) => {
         id="firstname"
         label="First Name"
         type="text"
-        invalid={!form.firstnameIsValid && form.nameIsFocus ? "invalid" : ""}
+        invalid={!form.firstnameIsValid && form.nameIsFocus ? 'invalid' : ''}
         placeholder="Enter your firstname"
         value={form.firstname}
         onChange={firstnameOnChangeHandler}
@@ -291,7 +291,7 @@ const Form = ({ setError, loading, onSubmit }) => {
         id="lastname"
         label="Last Name"
         type="text"
-        invalid={!form.lastnameIsValid && form.lastname ? "invalid" : ""}
+        invalid={!form.lastnameIsValid && form.lastname ? 'invalid' : ''}
         placeholder="Enter your lastname"
         value={form.lastname}
         onChange={lastnameOnChangeHandler}
@@ -307,7 +307,7 @@ const Form = ({ setError, loading, onSubmit }) => {
         id="email"
         label="Email"
         type="email"
-        invalid={!form.emailIsValid && form.emailIsFocus ? "invalid" : ""}
+        invalid={!form.emailIsValid && form.emailIsFocus ? 'invalid' : ''}
         placeholder="example@email.com"
         value={form.email}
         onChange={emailOnChangeHandler}
@@ -320,7 +320,7 @@ const Form = ({ setError, loading, onSubmit }) => {
         id="phone"
         label="Phone Number"
         type="number"
-        invalid={!form.phoneIsValid && form.phoneIsFocus ? "invalid" : ""}
+        invalid={!form.phoneIsValid && form.phoneIsFocus ? 'invalid' : ''}
         placeholder="e.g, +2349021002100"
         value={form.phone}
         onChange={phoneOnChangeHandler}
@@ -332,8 +332,8 @@ const Form = ({ setError, loading, onSubmit }) => {
       <Input
         id="password"
         label="Password"
-        type={showPassword ? "text" : "password"}
-        invalid={!form.passwordIsValid && form.passwordIsFocus ? "invalid" : ""}
+        type={showPassword ? 'text' : 'password'}
+        invalid={!form.passwordIsValid && form.passwordIsFocus ? 'invalid' : ''}
         placeholder="e.g, Password@1234"
         value={form.password}
         onChange={passwordOnChangeHandler}
@@ -350,11 +350,11 @@ const Form = ({ setError, loading, onSubmit }) => {
       <Input
         id="confirmpassword"
         label="Confirm Password"
-        type={showPassword ? "text" : "password"}
+        type={showPassword ? 'text' : 'password'}
         invalid={
           !form.confirmpasswordIsValid && form.confirmpasswordIsFocus
-            ? "invalid"
-            : ""
+            ? 'invalid'
+            : ''
         }
         placeholder="e.g, Password@1234"
         value={form.confirmpassword}
@@ -377,10 +377,10 @@ const Form = ({ setError, loading, onSubmit }) => {
           disabled={!form.formIsValid || loading}
           className={classes.button}
         >
-          {loading ? <LoadingSpinner /> : "Sign up"}
+          {loading ? <LoadingSpinner /> : 'Sign up'}
         </Button>
       </div>
     </form>
-  );
-};
-export default Form;
+  )
+}
+export default Form
